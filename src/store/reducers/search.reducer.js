@@ -1,24 +1,21 @@
-
-import { createSlice } from "@reduxjs/toolkit";
-import { fetchSearchList } from "../Actions/search.actions";
-
+import { createSlice } from '@reduxjs/toolkit';
+import { fetchSearchList } from '../Actions/search.actions';
 
 const searchResultsSlice = createSlice({
-  name: "searchResults",
+  name: 'searchResults',
   initialState: {
     data: [],
     loading: false,
     error: null,
   },
   reducers: {},
-  extraReducers: (builder) => {
+  extraReducers: builder => {
     builder
-      .addCase(fetchSearchList.pending, (state) => {
+      .addCase(fetchSearchList.pending, state => {
         state.loading = true;
         state.error = null;
       })
       .addCase(fetchSearchList.fulfilled, (state, action) => {
-    
         state.loading = false;
         state.data = action.payload;
       })

@@ -1,18 +1,22 @@
+import styles from './DropDown.module.css';
 const DropDown = ({ data, onClick, key }) => {
-
-    return (
+  return (
+    <div style={{}}>
+      {data && (
         <div>
-            {data && (
-                <ul>
-                    {data.map((item, index) => (
-                        <li key={index[key]} onClick={() => onClick(item)}>
-                            {key ? item[key] : item}
-                        </li>
-                    ))}
-                </ul>
-            )}
+          {data.map((item, index) => (
+            <div
+              className={styles.inputIcon}
+              key={`${key ? item[key] : item}-${index}`}
+              onClick={() => onClick(item)}
+            >
+              {key ? item[key] : item}
+            </div>
+          ))}
         </div>
-    );
+      )}
+    </div>
+  );
 };
 
 export default DropDown;

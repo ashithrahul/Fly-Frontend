@@ -1,0 +1,8 @@
+build
+dist
+coverage
+*.min.js
+*.min.css
+public
+.git
+.DS_Store

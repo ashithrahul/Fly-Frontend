@@ -1,0 +1,20 @@
+.inputIcon {
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  color: #fff;
+}
+
+.inputContainer {
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  flex-grow: 1;
+  color: #fff;
+}
+
+.input::placeholder {
+  color: #ccc;
+}

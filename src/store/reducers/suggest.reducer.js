@@ -1,17 +1,17 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { fetchSuggestedList } from "../Actions/suggest.actions";
+import { createSlice } from '@reduxjs/toolkit';
+import { fetchSuggestedList } from '../Actions/suggest.actions';
 
 const suggestedSlice = createSlice({
-  name: "suggested",
+  name: 'suggested',
   initialState: {
     data: [],
     loading: false,
     error: null,
   },
   reducers: {},
-  extraReducers: (builder) => {
+  extraReducers: builder => {
     builder
-      .addCase(fetchSuggestedList.pending, (state) => {
+      .addCase(fetchSuggestedList.pending, state => {
         state.loading = true;
         state.error = null;
       })

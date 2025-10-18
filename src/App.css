@@ -1,6 +1,13 @@
 #root {
   max-width: 100vw;
+  height: 100vh;
   margin: 0 auto;
   text-align: center;
 }
- 
+.main {
+  height: calc(100% - 70px);
+}
+
+.app {
+  height: 100%;
+}

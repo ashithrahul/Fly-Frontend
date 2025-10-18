@@ -10,16 +10,16 @@
   padding: 5px;
   width: 40px;
   cursor: pointer;
-  background: #87b0c5
+  background: #87b0c5;
 }
 
 .ellipsis {
   border: none;
-  opacity: .5;
+  opacity: 0.5;
 }
 
 .button {
-  background:var(--primary-background);
+  background: var(--primary-background);
 }
 
 .active {

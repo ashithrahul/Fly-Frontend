@@ -9,7 +9,7 @@ function App() {
     <Router>
       <div className="app">
         <NavBar />
-        <main>
+        <main className="main">
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/search" element={<SearchPage />} />
