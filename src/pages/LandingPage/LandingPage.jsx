@@ -1,15 +1,18 @@
 import { useState, useEffect, useMemo, useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Input from "../../components/Input/Input";
-import { useLazySearchSuggestionsQuery } from "./../../store/searchApi";
 import { debounce } from "./../../utils/common.utils";
 import DropDown from "../../components/DropdDown/DropDown";
 import Button from "../../components/Button/Button";
+import { fetchSuggestedList } from "../../store/Actions/suggest.actions";
 
 const LandingPage = () => {
     const [inputValue, setInputValue] = useState('');
-    const [triggerSearch, { data: suggestions}] = useLazySearchSuggestionsQuery();
+      const { data: suggestions, loading, error } = useSelector((state) => state.suggested);
+
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
 
     const onChange = (e) => {
@@ -19,9 +22,9 @@ const LandingPage = () => {
 
     const debouncedOnChange = useMemo(
         () => debounce((value) => {
-            triggerSearch(value);
+            dispatch(fetchSuggestedList(value));
         }, 300),
-        [triggerSearch] 
+        [dispatch] 
     );
 
     useEffect(() => {
@@ -38,7 +41,6 @@ const LandingPage = () => {
             navigate(`/search?q=${encodeURIComponent(inputValue)}`);
         }
     }, [inputValue, navigate]);
-
 
     return (
         <div>
