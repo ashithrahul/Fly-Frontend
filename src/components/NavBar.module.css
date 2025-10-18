@@ -1,0 +1,22 @@
+.NavBar_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--primary-background);
+    color: white;
+}
+
+.NavBar_leftIcons_wrapper {
+    display: flex;
+    gap: 15px;
+}
+.NavBar_user_avatar {
+    background-color: #3597c8;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
