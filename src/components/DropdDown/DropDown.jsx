@@ -1,7 +1,12 @@
 import styles from './DropDown.module.css';
-const DropDown = ({ data, onClick, key }) => {
+import useOutsideClick from '../../hooks/useOutSideClick.js';
+
+const DropDown = ({ data, onClick, key, classes={}, onClose }) => {
+const dropdownRef = useOutsideClick(() => {
+    if (onClose) onClose();
+  });
   return (
-    <div style={{}}>
+    <div className={classes.container} ref={dropdownRef}>
       {data && (
         <div>
           {data.map((item, index) => (

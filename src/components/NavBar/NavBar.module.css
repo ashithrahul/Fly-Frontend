@@ -22,3 +22,12 @@
   justify-content: center;
   font-weight: 700;
 }
+
+.NavBar_rightIcons_wrapper{
+  position: relative;
+}
+.DropDown_container {
+  position: absolute;
+  background-color: #5ba4ca;
+  width: 200px;
+}

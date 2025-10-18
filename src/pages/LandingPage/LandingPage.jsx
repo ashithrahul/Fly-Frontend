@@ -13,8 +13,6 @@ const LandingPage = () => {
   const [inputValue, setInputValue] = useState('');
   const {
     data: suggestions,
-    loading,
-    error,
   } = useSelector(state => state.suggested);
 
   const navigate = useNavigate();
