@@ -17,5 +17,12 @@
 
 .searchResultsTitle span {
   font-weight: 600;
-    font-size: 16px;
+  font-size: 16px;
+}
+
+@media (max-width: 575.98px) {
+  .searchPageContainer {
+    padding: 20px 30px;
+}
+
 }
