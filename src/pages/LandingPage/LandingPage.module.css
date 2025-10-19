@@ -2,8 +2,10 @@
   display: flex;
   justify-content: center;
   position: relative;
-  top: 30%;
+  top: var(--container-top, 30%);
+  padding: 0 var(--container-padding, 50px);
 }
+
 .Input,
 .Input:focus,
 .Input:focus-visible {
@@ -19,32 +21,49 @@
 }
 
 .searchBox {
-  width: 30%;
+  width: var(--search-width, 30%);
 }
 
 .DropContainer {
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
-
-
 @media (max-width: 575.98px) {
-  .searchBox {
-  width: 90%;
-}
-.landingPageContainer {
-  top: 20%;
+  .landingPageContainer {
+    --container-top: 20%;
+    --container-padding: 15px;
+    --search-width: 90%;
+  }
 }
 
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .landingPageContainer {
+    --container-top: 20%;
+    --container-padding: 20px;
+    --search-width: 70%;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 991.98px) {
-  
-  .searchBox {
-    width: 70%;
-  }
-
   .landingPageContainer {
-  top: 20%;
+    --container-top: 25%;
+    --container-padding: 30px;
+    --search-width: 50%;
+  }
 }
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .landingPageContainer {
+    --container-top: 30%;
+    --container-padding: 40px;
+    --search-width: 40%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .landingPageContainer {
+    --container-top: 30%;
+    --container-padding: 50px;
+    --search-width: 30%;
+  }
 }

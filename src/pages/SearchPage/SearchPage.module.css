@@ -1,28 +1,50 @@
 .cardContainer {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
-  margin: 20px 0;
+  grid-template-columns: repeat(auto-fill, minmax(var(--card-min-width, 300px), 1fr));
+  gap: var(--grid-gap, 20px);
+  margin: var(--grid-margin, 20px) 0;
 }
 
 .searchPageContainer {
-  padding: 20px 100px;
+  padding: var(--container-padding-y, 20px) var(--container-padding-x, 100px);
 }
 
 .searchResultsTitle {
-  font-size: 24px;
+  font-size: var(--title-size, 24px);
   font-weight: 800;
   text-align: left;
 }
 
 .searchResultsTitle span {
   font-weight: 600;
-  font-size: 16px;
+  font-size: var(--subtitle-size, 16px);
 }
 
+/* Mobile First - Single property changes */
 @media (max-width: 575.98px) {
   .searchPageContainer {
-    padding: 20px 30px;
+    --container-padding-x: 10px;
+    --container-padding-y: 15px;
+    --card-min-width: 280px;
+    --grid-gap: 15px;
+    --grid-margin: 15px;
+    --title-size: 20px;
+    --subtitle-size: 14px;
+  }
 }
 
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .searchPageContainer {
+    --container-padding-x: 20px;
+    --card-min-width: 250px;
+    --title-size: 22px;
+    --subtitle-size: 15px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .searchPageContainer {
+    --container-padding-x: 40px;
+    --card-min-width: 280px;
+  }
 }

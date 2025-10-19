@@ -1,5 +1,6 @@
 import styles from './DropDown.module.css';
 import useOutsideClick from '../../hooks/useOutSideClick.js';
+import classNames from 'classnames';
 
 const DropDown = ({
   data,
@@ -13,7 +14,7 @@ const DropDown = ({
     if (onClose) onClose();
   }, excludeRef);
   return (
-    <div className={classes.container} ref={dropdownRef}>
+    <div className={classNames(classes.container, styles.inputIconValue)} ref={dropdownRef}>
       {data && (
         <div>
           {data.map((item, index) => (
