@@ -2,14 +2,16 @@ import styles from './Card.module.css';
 
 const Card = ({ title, description, imageUrl }) => {
   return (
-    <div className="card">
+    <div>
       {imageUrl && (
         <img className={styles.cardImage} src={imageUrl} alt={title} />
       )}
-      <h2 title={title}>{title}</h2>
+      <div className={styles.cardContent}>
+      <h4 title={title}>{title}</h4>
       <p className={styles.cardDescription} title={description}>
         {description}
       </p>
+      </div>
     </div>
   );
 };

@@ -9,3 +9,8 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+.cardContent {
+  padding: 15px;
+  text-align: left;
+}
