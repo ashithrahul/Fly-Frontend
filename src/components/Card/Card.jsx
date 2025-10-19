@@ -1,10 +1,20 @@
 import styles from './Card.module.css';
+import { Image, Shimmer } from 'react-shimmer';
+
 
 const Card = ({ title, description, imageUrl }) => {
   return (
     <div>
       {imageUrl && (
-        <img className={styles.cardImage} src={imageUrl} alt={title} />
+        <Image
+        className={styles.cardImage} 
+        src={imageUrl} 
+        alt={title}
+        fallback={<Shimmer 
+          height={300}
+          width={400}
+          />}
+      />
       )}
       <div className={styles.cardContent}>
       <h4 title={title}>{title}</h4>
