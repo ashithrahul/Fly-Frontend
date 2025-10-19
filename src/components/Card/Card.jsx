@@ -4,15 +4,14 @@ import { Image, Shimmer } from 'react-shimmer';
 
 const Card = ({ title, description, imageUrl }) => {
   return (
-    <div>
+    <div className={styles.cardContainer}>
       {imageUrl && (
         <Image
-        className={styles.cardImage} 
         src={imageUrl} 
         alt={title}
         fallback={<Shimmer 
-          height={300}
-          width={400}
+          height={230}
+          width={330}
           />}
       />
       )}
