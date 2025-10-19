@@ -7,7 +7,11 @@ import Button from '../Button/Button.jsx';
 import { useState, useRef } from 'react';
 import DropDown from '../DropdDown/DropDown.jsx';
 
-const data = ['Profile', 'Settings', 'Logout'];
+const MENU_ITEMS = [
+  { id: 'profile', label: 'Profile', action: 'profile' },
+  { id: 'settings', label: 'Settings', action: 'settings' },
+  { id: 'logout', label: 'Logout', action: 'logout' }
+];
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,7 +30,8 @@ const NavBar = () => {
       classes={{
         container: styles.DropDown_container
       }}
-      data={data} 
+      data={MENU_ITEMS} 
+      keyProp="label"
       onClick={() => setIsOpen(false)} />}
       </div>
       <div className={styles.NavBar_leftIcons_wrapper}>

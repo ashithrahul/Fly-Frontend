@@ -8,9 +8,20 @@
   height: 70px;
 }
 
-.NavBar_hamburger_menu{
+.NavBar_hamburger_menu {
   display: flex;
 }
+
+.NavBar_hamburger_menu button {
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.NavBar_hamburger_menu button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+
 .NavBar_title {
   margin-left: 10px;
   text-transform: uppercase;
@@ -20,7 +31,18 @@
 .NavBar_leftIcons_wrapper {
   display: flex;
   gap: 15px;
+  align-items: center;
 }
+
+.NavBar_leftIcons_wrapper button {
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.NavBar_leftIcons_wrapper button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
 .NavBar_user_avatar {
   background-color: #3597c8;
   width: 35px;
@@ -42,5 +64,5 @@
   background-color: #5ba4ca;
   width: 200px;
   left: -18px;
-  top: 54px;
+  top: 60px;
 }
