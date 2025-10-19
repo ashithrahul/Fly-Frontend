@@ -1,12 +1,11 @@
 .pagination {
   display: flex;
   gap: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 20px 0;
   justify-content: center;
 }
 
 .pageBox {
-  border: 1px solid black;
   padding: 5px;
   width: 40px;
   cursor: pointer;
@@ -14,14 +13,14 @@
 }
 
 .ellipsis {
-  border: none;
-  opacity: 0.5;
+ background-color: transparent;
 }
 
 .button {
-  background: var(--primary-background);
+  background: #87b0c5;
 }
 
 .active {
   background: var(--primary-background);
+  color: #fff;
 }

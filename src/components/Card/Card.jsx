@@ -6,8 +6,8 @@ const Card = ({ title, description, imageUrl }) => {
       {imageUrl && (
         <img className={styles.cardImage} src={imageUrl} alt={title} />
       )}
-      <h2>{title}</h2>
-      <p>{description}</p>
+      <h2 title={title}>{title}</h2>
+      <p className={styles.cardDescription} title={description}>{description}</p>
     </div>
   );
 };

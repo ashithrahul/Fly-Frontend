@@ -23,8 +23,8 @@ const SearchPage = () => {
   }, [currentPage, dispatch, query]);
 
   return (
-    <div>
-      <h1>Search Results for "{query}"</h1>
+    <div className={styles.searchPageContainer}>
+      <div className={styles.searchResultsTitle}>Search Results for : <span>{query}</span></div>
 
       <Pagination
         pagination={pagination}
