@@ -66,7 +66,12 @@ const LandingPage = () => {
         </div>
 
         {suggestions && inputValue && (
-          <DropDown data={suggestions} onClick={handleSuggestionClick} />
+          <DropDown 
+          classes={{
+            container: styles.DropContainer
+          }}
+          data={suggestions} 
+          onClick={handleSuggestionClick} />
         )}
       </div>
     </div>

@@ -26,12 +26,14 @@ const SearchPage = () => {
     <div className={styles.searchPageContainer}>
       <div className={styles.searchResultsTitle}>Search Results for : <span>{query}</span></div>
 
-      <Pagination
-        pagination={pagination}
-        currentPage={currentPage}
-        totalNumberPages={totalPages}
-        setCurrentPage={setCurrentPage}
-      />
+      {results && results.length > 0 && (
+        <Pagination
+          pagination={pagination}
+          currentPage={currentPage}
+          totalNumberPages={totalPages}
+          setCurrentPage={setCurrentPage}
+        />
+      )}
       {isLoading && <p>Loading...</p>}
       {error && <p>Error occurred while fetching results.</p>}
       {results && results.length === 0 && (
