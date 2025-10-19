@@ -6,15 +6,15 @@
 }
 
 .searchPageContainer {
-    padding: 20px 100px;
+  padding: 20px 100px;
 }
 
 .searchResultsTitle {
-    font-size: 16px;
-    font-weight: 800;
-    text-align: left;
+  font-size: 16px;
+  font-weight: 800;
+  text-align: left;
 }
 
 .searchResultsTitle span {
-    font-weight: 600;
+  font-weight: 600;
 }

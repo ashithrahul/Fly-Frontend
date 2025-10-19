@@ -17,10 +17,10 @@ describe('Button Component', () => {
   test('renders button with icon only', () => {
     const TestIcon = () => <span data-testid="test-icon">🔍</span>;
     render(<Button icon={<TestIcon />} />);
-    
+
     const buttonElement = screen.getByRole('button');
     const iconElement = screen.getByTestId('test-icon');
-    
+
     expect(buttonElement).toBeInTheDocument();
     expect(iconElement).toBeInTheDocument();
   });
@@ -28,11 +28,11 @@ describe('Button Component', () => {
   test('renders button with both icon and text', () => {
     const TestIcon = () => <span data-testid="test-icon">🔍</span>;
     render(<Button icon={<TestIcon />}>Search</Button>);
-    
+
     const buttonElement = screen.getByRole('button');
     const iconElement = screen.getByTestId('test-icon');
     const textElement = screen.getByText('Search');
-    
+
     expect(buttonElement).toBeInTheDocument();
     expect(iconElement).toBeInTheDocument();
     expect(textElement).toBeInTheDocument();
@@ -41,20 +41,20 @@ describe('Button Component', () => {
   test('calls onClick handler when clicked', () => {
     const handleClick = jest.fn();
     render(<Button onClick={handleClick}>Click me</Button>);
-    
+
     const buttonElement = screen.getByRole('button');
     fireEvent.click(buttonElement);
-    
+
     expect(handleClick).toHaveBeenCalledTimes(1);
   });
 
   test('passes event object to onClick handler', () => {
     const handleClick = jest.fn();
     render(<Button onClick={handleClick}>Click me</Button>);
-    
+
     const buttonElement = screen.getByRole('button');
     fireEvent.click(buttonElement);
-    
+
     expect(handleClick).toHaveBeenCalledWith(expect.any(Object));
   });
 
@@ -97,25 +97,33 @@ describe('Button Component', () => {
 
   test('does not call onClick when disabled', () => {
     const handleClick = jest.fn();
-    render(<Button onClick={handleClick} disabled>Click me</Button>);
-    
+    render(
+      <Button onClick={handleClick} disabled>
+        Click me
+      </Button>
+    );
+
     const buttonElement = screen.getByRole('button');
     fireEvent.click(buttonElement);
-    
+
     expect(handleClick).not.toHaveBeenCalled();
   });
 
   test('applies additional props through spread operator', () => {
-    render(<Button data-testid="custom-button" aria-label="Custom button">Click me</Button>);
+    render(
+      <Button data-testid="custom-button" aria-label="Custom button">
+        Click me
+      </Button>
+    );
     const buttonElement = screen.getByTestId('custom-button');
-    
+
     expect(buttonElement).toHaveAttribute('aria-label', 'Custom button');
   });
 
   test('applies icon CSS class when icon is provided', () => {
     const TestIcon = () => <span data-testid="test-icon">🔍</span>;
     render(<Button icon={<TestIcon />}>Search</Button>);
-    
+
     const iconSpan = screen.getByTestId('test-icon').parentElement;
     expect(iconSpan).toHaveClass('btn__icon');
   });
@@ -144,12 +152,12 @@ describe('Button Component', () => {
   test('handles multiple clicks correctly', () => {
     const handleClick = jest.fn();
     render(<Button onClick={handleClick}>Click me</Button>);
-    
+
     const buttonElement = screen.getByRole('button');
     fireEvent.click(buttonElement);
     fireEvent.click(buttonElement);
     fireEvent.click(buttonElement);
-    
+
     expect(handleClick).toHaveBeenCalledTimes(3);
   });
 
@@ -159,9 +167,9 @@ describe('Button Component', () => {
         <circle cx="12" cy="12" r="10" />
       </svg>
     );
-    
+
     render(<Button icon={<ComplexIcon size={24} />}>Complex Icon</Button>);
-    
+
     const iconElement = screen.getByTestId('complex-icon');
     expect(iconElement).toBeInTheDocument();
     expect(iconElement).toHaveAttribute('width', '24');
@@ -170,14 +178,18 @@ describe('Button Component', () => {
   test('handles button focus and blur events', () => {
     const handleFocus = jest.fn();
     const handleBlur = jest.fn();
-    
-    render(<Button onFocus={handleFocus} onBlur={handleBlur}>Focusable Button</Button>);
-    
+
+    render(
+      <Button onFocus={handleFocus} onBlur={handleBlur}>
+        Focusable Button
+      </Button>
+    );
+
     const buttonElement = screen.getByRole('button');
-    
+
     fireEvent.focus(buttonElement);
     expect(handleFocus).toHaveBeenCalledTimes(1);
-    
+
     fireEvent.blur(buttonElement);
     expect(handleBlur).toHaveBeenCalledTimes(1);
   });
@@ -185,10 +197,10 @@ describe('Button Component', () => {
   test('supports keyboard events', () => {
     const handleKeyDown = jest.fn();
     render(<Button onKeyDown={handleKeyDown}>Keyboard Button</Button>);
-    
+
     const buttonElement = screen.getByRole('button');
     fireEvent.keyDown(buttonElement, { key: 'Enter', code: 'Enter' });
-    
+
     expect(handleKeyDown).toHaveBeenCalledTimes(1);
   });
 });

@@ -11,9 +11,7 @@ import Button from '../../components/Button/Button';
 
 const LandingPage = () => {
   const [inputValue, setInputValue] = useState('');
-  const {
-    data: suggestions,
-  } = useSelector(state => state.suggested);
+  const { data: suggestions } = useSelector(state => state.suggested);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -66,12 +64,13 @@ const LandingPage = () => {
         </div>
 
         {suggestions && inputValue && (
-          <DropDown 
-          classes={{
-            container: styles.DropContainer
-          }}
-          data={suggestions} 
-          onClick={handleSuggestionClick} />
+          <DropDown
+            classes={{
+              container: styles.DropContainer,
+            }}
+            data={suggestions}
+            onClick={handleSuggestionClick}
+          />
         )}
       </div>
     </div>

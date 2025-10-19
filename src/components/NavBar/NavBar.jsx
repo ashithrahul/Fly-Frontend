@@ -10,29 +10,35 @@ import DropDown from '../DropdDown/DropDown.jsx';
 const MENU_ITEMS = [
   { id: 'profile', label: 'Profile', action: 'profile' },
   { id: 'settings', label: 'Settings', action: 'settings' },
-  { id: 'logout', label: 'Logout', action: 'logout' }
+  { id: 'logout', label: 'Logout', action: 'logout' },
 ];
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const hamburgerRef = useRef(null);
-  
+
   return (
     <nav className={styles.NavBar_container}>
       <div className={styles.NavBar_rightIcons_wrapper}>
-      <div ref={hamburgerRef} className={styles.NavBar_hamburger_menu}>
-        <Button icon={<GiHamburgerMenu size={30} />} onClick={() => setIsOpen((isOpen) => !isOpen)} />
-      </div>
-      <h1 className={styles.NavBar_title}>Searchify</h1>
-      {isOpen && <DropDown 
-      onClose={() => setIsOpen(false)}
-      excludeRef={hamburgerRef}
-      classes={{
-        container: styles.DropDown_container
-      }}
-      data={MENU_ITEMS} 
-      keyProp="label"
-      onClick={() => setIsOpen(false)} />}
+        <div ref={hamburgerRef} className={styles.NavBar_hamburger_menu}>
+          <Button
+            icon={<GiHamburgerMenu size={30} />}
+            onClick={() => setIsOpen(isOpen => !isOpen)}
+          />
+        </div>
+        <h1 className={styles.NavBar_title}>Searchify</h1>
+        {isOpen && (
+          <DropDown
+            onClose={() => setIsOpen(false)}
+            excludeRef={hamburgerRef}
+            classes={{
+              container: styles.DropDown_container,
+            }}
+            data={MENU_ITEMS}
+            keyProp="label"
+            onClick={() => setIsOpen(false)}
+          />
+        )}
       </div>
       <div className={styles.NavBar_leftIcons_wrapper}>
         <Button icon={<MdNotificationsNone size={30} />} />

@@ -21,7 +21,6 @@
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-
 .NavBar_title {
   margin-left: 10px;
   text-transform: uppercase;
@@ -54,7 +53,7 @@
   font-weight: 700;
 }
 
-.NavBar_rightIcons_wrapper{
+.NavBar_rightIcons_wrapper {
   position: relative;
   display: flex;
   align-items: center;

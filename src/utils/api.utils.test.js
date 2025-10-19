@@ -19,14 +19,14 @@ describe('api.utils', () => {
       const mockData = {
         results: [
           { id: 1, name: 'Item 1' },
-          { id: 2, name: 'Item 2' }
+          { id: 2, name: 'Item 2' },
         ],
-        total: 2
+        total: 2,
       };
 
       const mockResponse = {
         ok: true,
-        json: jest.fn().mockResolvedValue(mockData)
+        json: jest.fn().mockResolvedValue(mockData),
       };
 
       fetch.mockResolvedValue(mockResponse);
@@ -45,7 +45,7 @@ describe('api.utils', () => {
 
       const mockResponse = {
         ok: true,
-        json: jest.fn().mockResolvedValue(mockData)
+        json: jest.fn().mockResolvedValue(mockData),
       };
 
       fetch.mockResolvedValue(mockResponse);
@@ -60,16 +60,15 @@ describe('api.utils', () => {
       const mockResponse = {
         ok: false,
         status: 404,
-        statusText: 'Not Found'
+        statusText: 'Not Found',
       };
 
       fetch.mockResolvedValue(mockResponse);
 
       const url = 'https://api.example.com/notfound';
-      
+
       await expect(fetchListAPI({ url })).rejects.toThrow('Network error');
       expect(fetch).toHaveBeenCalledWith(url);
     });
-
   });
 });

@@ -24,7 +24,9 @@ const SearchPage = () => {
 
   return (
     <div className={styles.searchPageContainer}>
-      <div className={styles.searchResultsTitle}>Search Results for : <span>{query}</span></div>
+      <div className={styles.searchResultsTitle}>
+        Search Results for : <span>{query}</span>
+      </div>
 
       {results && results.length > 0 && (
         <Pagination

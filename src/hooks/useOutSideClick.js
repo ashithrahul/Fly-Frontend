@@ -4,11 +4,14 @@ const useOutsideClick = (callback, excludeRef = null, initialValue = null) => {
   const ref = useRef(initialValue);
 
   useEffect(() => {
-    const handleClickOutside = (event) => {
+    const handleClickOutside = event => {
       const isOutsideMain = ref.current && !ref.current.contains(event.target);
-      
-      const isOnExcluded = excludeRef && excludeRef.current && excludeRef.current.contains(event.target);
-      
+
+      const isOnExcluded =
+        excludeRef &&
+        excludeRef.current &&
+        excludeRef.current.contains(event.target);
+
       if (isOutsideMain && !isOnExcluded) {
         callback();
       }
