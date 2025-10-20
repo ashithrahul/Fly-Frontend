@@ -1,8 +1,14 @@
 .inputIcon {
   display: flex;
   align-items: center;
-  padding: 0 10px;
+  padding: 10px;
   color: #fff;
+  background: #025a86;
+}
+
+.inputIcon:hover {
+  background: #014f78;
+  cursor: pointer;
 }
 
 .inputContainer {
