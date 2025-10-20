@@ -10,3 +10,7 @@ export const fetchSearchList = createAsyncThunk(
     });
   }
 );
+
+export {
+  resetSearchState,
+} from '../reducers/search.reducer';

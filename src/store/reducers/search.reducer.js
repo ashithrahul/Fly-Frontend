@@ -8,7 +8,11 @@ const searchResultsSlice = createSlice({
     loading: false,
     error: null,
   },
-  reducers: {},
+  reducers: {
+    resetSearchState: () => {
+      return searchResultsSlice.getInitialState();
+    },
+  },
   extraReducers: builder => {
     builder
       .addCase(fetchSearchList.pending, state => {
@@ -25,5 +29,9 @@ const searchResultsSlice = createSlice({
       });
   },
 });
+
+export const {
+  resetSearchState,
+} = searchResultsSlice.actions;
 
 export default searchResultsSlice.reducer;

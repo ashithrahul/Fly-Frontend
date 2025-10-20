@@ -2,7 +2,7 @@ import { useSearchParams } from 'react-router-dom';
 import Pagination from '../../components/Pagination/Pagination';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchSearchList } from '../../store/Actions/search.actions';
+import { fetchSearchList, resetSearchState } from '../../store/Actions/search.actions';
 import Card from '../../components/Card/Card';
 import styles from './SearchPage.module.css';
 import NoData from '../../components/NoData/NoData';
@@ -12,12 +12,22 @@ const SearchPage = () => {
   const [searchParams] = useSearchParams();
   const query = searchParams.get('q');
   const dispatch = useDispatch();
+
+  // selecting the serach data to render
   const {
     data: { results, pagination, totalPages },
     isLoading,
     error,
   } = useSelector(state => state.searchResults);
 
+  // Resting the search page if if component unmount otherwise it retains the previous search data
+  useEffect(() => {
+    return () => {
+      dispatch(resetSearchState());
+    };
+  }, [dispatch]);
+
+  // fetching new data when page change
   useEffect(() => {
     dispatch(fetchSearchList({ searchTerm: query, currentPage }));
   }, [currentPage, dispatch, query]);
