@@ -4,14 +4,14 @@ import { useNavigate } from 'react-router-dom';
 import Input from '../../components/Input/Input';
 import { debounce } from './../../utils/common.utils';
 import DropDown from '../../components/DropdDown/DropDown';
-import { fetchSuggestedList } from '../../store/Actions/suggest.actions';
+import { fetchSuggestionsList } from '../../store/Actions/suggest.actions';
 import styles from './LandingPage.module.css';
 import { IoIosSearch } from 'react-icons/io';
 import Button from '../../components/Button/Button';
 
 const LandingPage = () => {
   const [inputValue, setInputValue] = useState('');
-  const { data: suggestions } = useSelector(state => state.suggested);
+  const { data: suggestions } = useSelector(state => state.suggestions);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -24,7 +24,7 @@ const LandingPage = () => {
   const debouncedOnChange = useMemo(
     () =>
       debounce(value => {
-        dispatch(fetchSuggestedList(value));
+        dispatch(fetchSuggestionsList(value));
       }, 300),
     [dispatch]
   );
