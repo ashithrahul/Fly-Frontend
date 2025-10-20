@@ -1,16 +1,86 @@
-# React + Vite
+## Tech Stack
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- **Frontend**: React + Vite
+- **Styling**: CSS Modules with responsive design
+- **State Management**: RTK
+- **Routing**: React Router DOM
+- **API Client**: Fetch API with custom utilities
+- **Testing**: Jest + React Testing Library
+- **Bundler**: Vite
 
-Currently, two official plugins are available:
+## Installation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Prerequisites
 
-## React Compiler
+- Node.js (v16 or higher)
+- npm or yarn
+- Git
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Local Development Setup
 
-## Expanding the ESLint configuration
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/ashithrahul/Fly-Frontend.git
+   cd Fly-Frontend
+   ```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+2. **Install dependencies**
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+3. **Set up environment variables**
+   ```bash
+   # Copy the example environment file
+   cp .env.example .env
+   
+   # Edit .env with your configuration
+   nano .env
+   ```
+
+4. **Start development server**
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+5. **Open your browser**
+   ```
+   http://localhost:5173
+   ```
+
+## Environment Configuration
+
+Create a `.env` file in the root directory:
+
+```bash
+# API Configuration
+VITE_API_URL=http://localhost:1001/api
+
+```
+
+## Docker Deployment
+
+### Build Docker Image
+
+```bash
+# Build with production API URL
+docker build --build-arg VITE_API_URL="https://your-api.com/api" -t fly-frontend .
+
+
+
+OR use buildx for diffrenent plateform images if the instance is diffrent
+
+
+
+docker buildx build --platform linux/amd64,linux/arm64 \
+  --build-arg VITE_API_URL=http://your-api.com/api \
+  -t fly-frontend:latest --push .
+
+
+# Run container
+docker run -d -p 80:80 fly-frontend
+```
